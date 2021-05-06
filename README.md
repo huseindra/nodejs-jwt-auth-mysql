@@ -1,4 +1,4 @@
-## React JWT Authentication(without Redux)
+## Node.js JWT Authentication with MySQL
 
 This tutorial is designed for a person want to learn Nodes JS  JWT Authentication with MySQL 
 
