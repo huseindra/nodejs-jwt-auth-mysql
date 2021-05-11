@@ -15,7 +15,7 @@ const sequelize = new Sequelize(
             acquire: config.pool.acquire,
             idle: config.pool.idle
         },
-        port: 8000,
+        port: 3307,
     }
 )
 const db = {}
@@ -39,7 +39,7 @@ db.user.belongsToMany(db.role, {
     otherKey:"roleID"
 })
 
-db.ROLES = ["user", "admin", "moderator"]
+db.ROLES = ["user", "admin", "moderator"];
 
 db.user.hasMany(db.post, {
     as: "posts"

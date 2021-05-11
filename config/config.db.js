@@ -1,8 +1,8 @@
 module.exports = {
-    HOST: "127.0.0.1",
+    HOST: "localhost",
     USER: "root",
-    PASSWORD: "grogol21",
-    DB: "test-nodejs",
+    PASSWORD: "123456",
+    DB: "test_nodejs",
     dialect:"mysql",
     pool: {
         // max: maximum number of connection in pool

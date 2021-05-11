@@ -5,7 +5,8 @@ const cors = require("cors")
 const app = express();
 
 // database
-const db = require("./models")
+const db = require("./models");
+const { sequelize } = require("./models");
 const Role = db.role
 
 // // if you want to force to sync and drop db 
@@ -14,7 +15,6 @@ const Role = db.role
 //     initial()
 // })
 db.sequelize.sync();
-
 var corsOptions = {
     origin: "http://localhost:8081"
 };
@@ -50,10 +50,10 @@ function initial(){
     })
     Role.create({
         id: 2,
-        name: "admin"
+        name: "moderator"
     })
     Role.create({
         id: 3,
-        name: "moderator"
+        name: "admin"
     })
 }

@@ -22,7 +22,6 @@ verifyToken = (req, res, next) =>{
         next()
     })
 }
-
 isAdmin = (req, res, next) => {
     User.findByPk(req.userId).then(user => {
         user.getRoles().then(roles =>{
@@ -32,14 +31,15 @@ isAdmin = (req, res, next) => {
                     return
                 }
             }
+            res.status(403).send({
+                message: "Require admin role!"
+            })
+            return
         })
-
-        res.status(403).send({
-            message: "Require admin role!"
-        })
-        return
     })
 }
+
+
 isModerator = (req, res, next) => {
     User.findByPk(req.userId).then(user => {
         user.getRoles().then(roles =>{
@@ -49,15 +49,13 @@ isModerator = (req, res, next) => {
                     return
                 }
             }
+            res.status(403).send({
+                message: "Require moderator role!"
+            })
+            return
         })
-
-        res.status(403).send({
-            message: "Require moderator role!"
-        })
-        return
     })
 }
-
 isModeratorOrAdmin = (req, res, next) => {
     User.findByPk(req.userId).then(user => {
         user.getRoles().then(roles =>{
@@ -71,12 +69,11 @@ isModeratorOrAdmin = (req, res, next) => {
                     return
                 }
             }
-        })
-
-        res.status(403).send({
-            message: "Require moderator or admin role!"
-        })
-        return
+            res.status(403).send({
+                message: "Require moderator or admin role!"
+            })
+            return
+        })    
     })
 }
 
